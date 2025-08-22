@@ -1,5 +1,10 @@
 <?php
 include "../koneksi.php";
+
+// if (!isset($_SESSION['id_user'])) {
+//     header("Location: ../account/login.php");
+//     exit;
+// }
 ?>
 
 <!DOCTYPE html>
@@ -15,34 +20,66 @@ include "../koneksi.php";
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
   />
 </head>
-<body class="flex min-h-screen bg-gray-100">
+<body class="flex min-h-screen bg-blue-100">
 
   <!-- Sidebar -->
   <div
     id="sidebar"
-    class="fixed md:static top-0 left-0 h-screen w-64 bg-sky-600 text-white p-4 transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50"
+    class="fixed top-0 left-0 w-64 h-screen bg-sky-700 text-white p-4 
+           overflow-y-auto z-50 transform -translate-x-full 
+           md:translate-x-0 transition-transform duration-300 ease-in-out"
   >
-    <h2 class="text-xl font-bold mb-4">Sidebar</h2>
+  <div class="mt-1 flex border-b gap-3 items-center py-2">
+    
+    <div class="w-10 h-10 rounded-full">
+    <img src="https://i.pinimg.com/736x/43/0f/07/430f07ae232540762bb76d3da5e7e5e6.jpg" class="object-cover rounded-full"></img>
+    </div>
+    
+    <h2 class="text-xl font-bold">Absen Track</h2>
+    
+  </div>
+   
+  <div class="mt-6">
     <ul class="space-y-2">
-      <li><a href="dashboard.php" class="block p-2 hover:bg-sky-700 rounded"><i class="fa-solid fa-house-user mr-2"></i>Dashboard</a></li>
-      <li><a href="informasi.php" class="block p-2 hover:bg-sky-700 rounded"><i class="fa-solid fa-book mr-2"></i>Manajemen Informasi</a></li>
-      <li><a href="absensi.php" class="block p-2 hover:bg-sky-700 rounded"><i class="fa-solid fa-file mr-2"></i>Manajemen Absensi</a></li>
-      <li><a href="jadwal.php" class="block p-2 hover:bg-sky-700 rounded"><i class="fa-solid fa-calendar-check mr-2"></i>Manajemen Jadwal</a></li>
-      <li><a href="#" class="block p-2 hover:bg-sky-700 rounded bg-sky-500"><i class="fa-solid fa-chart-simple mr-2"></i>Statistik Kehadiran</a></li>
+      <li>
+        <a href="dashboard.php" class="block p-2 hover:bg-sky-500 rounded">
+          <i class="fa-solid fa-house-user mr-2"></i>Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="absensi.php" class="block p-2 hover:bg-sky-500 rounded">
+          <i class="fa-solid fa-file mr-2"></i>Manajemen Absensi
+        </a>
+      </li>
+      <li>
+        <a href="jadwal.php" class="block p-2 hover:bg-sky-500 rounded">
+          <i class="fa-solid fa-calendar-check mr-2"></i>Manajemen Jadwal
+        </a>
+      </li>
+      <li>
+        <a href="#" class="block p-2 hover:bg-sky-500 bg-sky-500 rounded">
+          <i class="fa-solid fa-chart-simple mr-2"></i>Statistik Kehadiran
+        </a>
+      </li>
+      <li>
+        <a href="register.php" class="block p-2 hover:bg-sky-500 hover:text-white rounded text-0xl text-gray-400">
+          <i class="fa-solid fa-user-plus mr-2"></i>Registrasi
+        </a>
+      </li>
     </ul>
+    </div>
   </div>
 
-  <!-- Main Content -->
-  <div class="flex-1 flex flex-col">
-
+  <div class="flex-1 flex flex-col min-h-screen">
     <!-- Top Bar -->
     <div class="md:hidden bg-sky-800 text-white p-4 flex items-center justify-between fixed w-full z-40">
-      <h1 class="text-lg font-bold">Statistik Kehadiran</h1>
-      <button id="toggleSidebar" class="text-2xl focus:outline-none">☰</button>
+      <h1 class="text-lg font-bold">Absen Track</h1>
+      <button id="toggleSidebar" class="text-white focus:outline-none text-2xl">
+        ☰
+      </button>
     </div>
-
     <!-- Main Area -->
-    <main class="p-4 pt-16 md:pt-4">
+    <main class="p-4 pt-10 md:ml-70">
       
       <!-- Judul dan Filter -->
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
@@ -80,6 +117,6 @@ include "../koneksi.php";
     </main>
   </div>
 
- 
+    <script src="admin.js"></script>
 </body>
 </html>
