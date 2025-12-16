@@ -1,11 +1,12 @@
 <?php
+session_start();
 include "../koneksi.php";
 
 
-// if (!isset($_SESSION['id_user'])) {
-//     header("Location: ../account/login.php");
-//     exit;
-// }
+if (!isset($_SESSION['id_user'])) {
+    header("Location: ../account/login.php");
+    exit;
+}
 
 $queryAnggota = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM users WHERE role ='anggota'");
 $dataAnggota = mysqli_fetch_assoc($queryAnggota);

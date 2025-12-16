@@ -1,10 +1,11 @@
 <?php
+session_start();
 include "../koneksi.php";
 
-// if (!isset($_SESSION['id_user'])) {
-//     header("Location: ../account/login.php");
-//     exit;
-// }
+if (!isset($_SESSION['id_user'])) {
+    header("Location: ../account/login.php");
+    exit;
+}
 
 ?>
 
